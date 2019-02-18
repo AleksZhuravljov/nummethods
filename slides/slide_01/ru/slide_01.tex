@@ -50,4 +50,23 @@
 \begin{frame}{Источники}
 \end{frame}
 
+\begin{frame}{Разложение в ряд Тейлора}
+\begin{eqnarray}
+AU=0,\; LU=0,\; AU_{i}=LU_{i}+R_{i},\\
+x_{0}, x_{1}, \dots, x_{N+1},\\
+x_{0}=0, x_{N+1}=L,\; h=x_{i+1}-x_{i}=\frac{L}{N+1},\\
+U_{i+1}=U_{i}+U'_{i}h+U''_{i}\frac{h^2}{2}+U'''_{i}\frac{h^3}{6}+U^{IV}_{i}\frac{h^4}{24}+\cdots\\
+U_{i-1}=U_{i}-U'_{i}h+U''_{i}\frac{h^2}{2}-U'''_{i}\frac{h^3}{6}+U^{IV}_{i}\frac{h^4}{24}-\cdots
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}{Разложение в ряд Тейлора}
+\begin{eqnarray}
+U'{i}=\frac{U_{i+1}-U_{i}}{h}+R^f_{i},\; R^f_{i}=-U''_{i}\frac{h}{2}-U'''_{i}\frac{h^2}{6}-\cdots\\
+U'{i}=\frac{U_{i}-U_{i-1}}{h}+R^b_{i},\; R^b_{i}=U''_{i}\frac{h}{2}-U'''_{i}\frac{h^2}{6}-\cdots\\
+U'{i}=\frac{U_{i+1}-U_{i-1}}{2h}+R^c_{i},\; R^c_{i}=-U'''_{i}\frac{h^2}{6}-\cdots\\
+U'{i}=\frac{U_{i+1}-2U{i}+U_{i-1}}{h^2}+R^2_{i},\; R^2_{i}=-U^{IV}_{i}\frac{h^2}{12}-\cdots
+\end{eqnarray}
+\end{frame}
+
 \end{document}
