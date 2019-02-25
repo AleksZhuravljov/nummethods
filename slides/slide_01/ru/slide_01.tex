@@ -31,41 +31,60 @@
         \item Исчисление бесконечно малых
             \begin{itemize}
                 \item Геометрическая интерпретация
-                \item Дифференциал и полная производная                
-                \item Частная производная
+                \item Дифференциал, полная и частная производные                
+                \item Функционал и его вариация
             \end{itemize}
+        \vspace{0.2 cm}    
         \item Метод конечных разностей
             \begin{itemize}
                 \item Разложение в ряд Тейлора        
                 \item $\frac{\partial}{\partial t} \rho c_{\rho} T = \vec{\nabla}  \lambda \vec{\nabla} T$      
             \end{itemize}
+         \vspace{0.2 cm}     
         \item Метод конечного объёма
             \begin{itemize}
                 \item $\int \limits_{V} \frac{\partial}{\partial t} \rho c_{\rho} T dV = \oint \limits_{S}  \lambda \vec{\nabla} T d \vec{S}$               
             \end{itemize}
-        \item Метод конечных элементов          
+        \vspace{0.2 cm}     
+        \item Метод конечных элементов                             
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Источники}
+\begin{itemize}
+        \item Самарский, А.А., 1978. Методы решения сеточных уравнений. Наука.
+        \item Самарский, А.А. and Гулин, А.В., 2003. Численные методы математической физики. М: Науч. мир.
+        \item Зенкевич, О., 1975. Метод конечных элементов в технике. Рипол Классик.
+        \item LeVeque, R.J., 2007. Finite difference methods for ordinary and partial differential equations: steady-state and time-dependent problems (Vol. 98). Siam.
+        \item Eymard, R., Gallouët, T. and Herbin, R., 2000. Finite volume methods. Handbook of numerical analysis, 7, pp.713-1018.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Разложение в ряд Тейлора}
 \begin{eqnarray}
 AU=0,\; LU=0,\; AU_{i}=LU_{i}+R_{i},\\
-x_{0}, x_{1}, \dots, x_{N+1},\\
-x_{0}=0, x_{N+1}=L,\; h=x_{i+1}-x_{i}=\frac{L}{N+1},\\
-U_{i+1}=U_{i}+U'_{i}h+U''_{i}\frac{h^2}{2}+U'''_{i}\frac{h^3}{6}+U^{IV}_{i}\frac{h^4}{24}+\cdots\\
-U_{i-1}=U_{i}-U'_{i}h+U''_{i}\frac{h^2}{2}-U'''_{i}\frac{h^3}{6}+U^{IV}_{i}\frac{h^4}{24}-\cdots
+x_{0}, x_{1}, \dots, x_N,\\
+x_{0}=0, x_N=L,\;\; h=x_{i+1}-x_{i},\\
+f\left(x, a\right) = \sum\limits_{n=0}^{\infty} \frac{f^{\left(n\right)}\left(a\right)}{n!} \left(x - a\right)^n,\\
+U_{i+1}=U_{i}+U'_{i}h+U''_{i}\frac{h^2}{2}+U'''_{i}\frac{h^3}{6}+U^{IV}_{i}\frac{h^4}{24}+\cdots,\\
+U_{i-1}=U_{i}-U'_{i}h+U''_{i}\frac{h^2}{2}-U'''_{i}\frac{h^3}{6}+U^{IV}_{i}\frac{h^4}{24}-\cdots.
 \end{eqnarray}
 \end{frame}
 
 \begin{frame}{Разложение в ряд Тейлора}
 \begin{eqnarray}
-U'{i}=\frac{U_{i+1}-U_{i}}{h}+R^f_{i},\; R^f_{i}=-U''_{i}\frac{h}{2}-U'''_{i}\frac{h^2}{6}-\cdots\\
-U'{i}=\frac{U_{i}-U_{i-1}}{h}+R^b_{i},\; R^b_{i}=U''_{i}\frac{h}{2}-U'''_{i}\frac{h^2}{6}-\cdots\\
-U'{i}=\frac{U_{i+1}-U_{i-1}}{2h}+R^c_{i},\; R^c_{i}=-U'''_{i}\frac{h^2}{6}-\cdots\\
-U'{i}=\frac{U_{i+1}-2U{i}+U_{i-1}}{h^2}+R^2_{i},\; R^2_{i}=-U^{IV}_{i}\frac{h^2}{12}-\cdots
+U'_{i}=\frac{U_{i+1}-U_{i}}{h}+R^f_{i},\;\; R^f_{i}=-U''_{i}\frac{h}{2}-U'''_{i}\frac{h^2}{6}-\cdots,\\
+U'_{i}=\frac{U_{i}-U_{i-1}}{h}+R^b_{i},\;\; R^b_{i}=U''_{i}\frac{h}{2}-U'''_{i}\frac{h^2}{6}-\cdots,\\
+U'_{i}=\frac{U_{i+1}-U_{i-1}}{2h}+R^c_{i},\;\; R^c_{i}=-U'''_{i}\frac{h^2}{6}-\cdots,\\
+U''_{i}=\frac{U_{i+1}-2U{i}+U_{i-1}}{h^2}+R^2_{i},\;\; R^2_{i}=-U^{IV}_{i}\frac{h^2}{12}-\cdots.
+\end{eqnarray}
+\end{frame}
+
+\begin{frame}{Уравнение теплопроводности}
+\begin{eqnarray}
+\frac{\partial T}{\partial t} - a \frac{\partial^2 T}{\partial x^2} = 0,\\
+\frac{T_i^{n+1} - T_i^{n}}{\Delta t} - a\frac{T_{i-1}^{n} - 2T_i^{n} + T_{i+1}^{n}}{\Delta x^2} = 0,\\
+\frac{T_i^{n+1} - T_i^{n}}{\Delta t} - a\frac{T_{i-1}^{n+1} - 2T_i^{n+1} + T_{i+1}^{n+1}}{\Delta x^2} = 0
 \end{eqnarray}
 \end{frame}
 
