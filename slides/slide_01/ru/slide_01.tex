@@ -91,7 +91,7 @@
         \frac{\partial T}{\partial t} + v \frac{\partial T}{\partial x}  =  \frac{\lambda}{\rho c_{\rho}} \frac{\partial^2 T}{\partial x^2},\\
         \frac{T_i^{n+1} - T_i^{n}}{\Delta t} + v_{i}\frac{T_{i+1}^{n}-T_{i-1}^{n}}{2\Delta x} =  \frac{\lambda}{\rho c_{\rho}}\frac{T_{i-1}^{n} - 2T_i^{n} + T_{i+1}^{n}}{\Delta x^2},\\
         \frac{T_i^{n+1} - T_i^{n}}{\Delta t} + v_{i}\frac{T_{i+1}^{n+1}-T_{i-1}^{n+1}}{2\Delta x} =  \frac{\lambda}{\rho c_{\rho}}\frac{T_{i-1}^{n+1} - 2T_i^{n+1} + T_{i+1}^{n+1}}{\Delta x^2},\\       
-        T_i^{n+1} = \left(1 - 2F \right) T_{i-1}^{n} + \left(F - \frac{C}{2} \right) T_i^{n} + \left(1 - 2F \right) T_{i+1}^{n},\\
+        T_i^{n+1} = \left(F + \frac{C}{2} \right) T_{i-1}^{n} + \left(1 - 2F \right) T_i^{n} + \left(F - \frac{C}{2} \right) T_{i+1}^{n},\\
         \left(-\frac{C}{2} - F \right) T_{i-1}^{n+1} + \left(1 + 2F \right) T_i^{n+1} + \left(\frac{C}{2} - F \right) T_{i+1}^{n+1} = T_i^{n}.
     \end{eqnarray}
 \end{frame}
