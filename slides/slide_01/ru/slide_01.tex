@@ -33,26 +33,53 @@
                 \item Геометрическая интерпретация
                 \item Дифференциал, полная и частная производные                
                 \item Функционал и его вариация
+                \item Принцип наименьшего действия
             \end{itemize}
         \vspace{0.2 cm}    
-        \item Метод конечных разностей
+        \item Вычислительная линейная алгебра
             \begin{itemize}
-                \item Разложение в ряд Тейлора        
-                \item $\rho \frac{\partial}{\partial t} c_{\rho} T + \rho \vec{v} \vec{\nabla} c_{\rho} T = \vec{\nabla}  \lambda \vec{\nabla} T$
-                \item Сеточные числа Фурье и Куранта
-                \item Общий алгоритм численного решения      
-            \end{itemize}                                
+                \item Линеаризация
+                \item Разряженные матрицы
+                \item Алгоритмирование матричных операций
+            \end{itemize}                                          
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Темы}
     \begin{itemize}
-        \item Метод конечного объёма
+    \item Метод конечных разностей (МКР)
             \begin{itemize}
+                \item Разложение в ряд Тейлора        
+                \item $\rho \frac{\partial}{\partial t} c_{\rho} T + \rho \vec{v} \vec{\nabla} c_{\rho} T = \vec{\nabla}  \lambda \vec{\nabla} T$
+                \item Сеточные числа Фурье и Куранта
+                \item Общий алгоритм численного решения      
+            \end{itemize}     
+            \vspace{0.2 cm}  
+        \item Метод конечных объёмов (МКО)
+            \begin{itemize}
+                \item Разбиение на элементарные объемы
+                \item Интерполяция между центрами объемов
                 \item $\int \limits_{V} \frac{\partial}{\partial t} \rho c_{\rho} T dV + \oint \limits_{S}  \rho c_{\rho} \vec{v}  T d \vec{S}= \oint \limits_{S}  \lambda \vec{\nabla} T d \vec{S}$               
-            \end{itemize}
-        \vspace{0.2 cm}     
-        \item Метод конечных элементов                             
+            \end{itemize}                   
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Темы}
+    \begin{itemize}    
+        \item Метод конечных элементов (МКЭ)       
+            \begin{itemize}
+                \item Вариационный принцип \\      
+                $\Pi\left(T\right) = \int \limits_{V} \left( 
+                \frac{1}{2}a \left(\vec{\nabla}T\right)^2 - QT\right)dV +
+                \oint \limits_{S}  \vec{q}  T d \vec{S}$\\
+               $ \delta \Pi = - \int \limits_{V} \left( 
+                \vec{\nabla}a\vec{\nabla}T - Q\right) \delta T dV +
+                \oint \limits_{S} \left(a\vec{\nabla}T + \vec{q}  \right) \delta T d \vec{S}$
+                \item Конечные элементы и координатные функции
+                \item Триангуляция Делоне 
+                \item Минимизации функционала   
+                \item Метод Галёркина                         
+            \end{itemize}              
     \end{itemize}
 \end{frame}
 
@@ -104,20 +131,16 @@
     \end{eqnarray}
 \end{frame}
 
-\begin{frame}{Общий алгоритм численного решения проблем}
-    \begin{enumerate}
-        \item Физико-математическая постановка задачи
-        \vspace{0.2 cm} 
-        \item Выбор численной схемы
-        \vspace{0.2 cm}
-        \item Построение сетки и выбор шагов по времени
-        \vspace{0.2 cm}
-        \item Построение численной схемы
-        \vspace{0.2 cm}
-        \item  Решение
-        \vspace{0.2 cm}
-        \item Валидация полученного решения
-    \end{enumerate}
+\begin{frame}{МКР Уравнение теплопроводности}
+ \begin{eqnarray}
+    \Pi\left(T\right) = \int \limits_{L} \left(\frac{1}{2}a \left(\frac{d T}{d x}\right)^2 - QT\right)dx +
+        \left.  q  T \right|_\Gamma,\\
+        \delta \Pi = - \int \limits_{L} \left(\frac{d}{dx}a\frac{dT}{dx} - Q\right) \delta T dL +
+    \left.  \left(a\frac{dT}{dx} + q  T \right) \delta T\right|_\Gamma,\\
+    T\left(x\right) = \sum\limits_{j=1}^{N-1}\sum\limits_{i=1}^N \alpha_i f^j_i\left(x\right)=
+       \sum\limits_{j=1}^{N-1} \sum\limits_{i=1}^N T_i f^j_i\left(x\right),\\    
+    \Pi = \sum\limits_{j=1}^{N-1} \Pi^j \Rightarrow  \frac{\partial}{\partial T_i} \sum\limits_{j=1}^{N-1} \Pi^j= 0,
+    \end{eqnarray}
 \end{frame}
 
 \end{document}
